@@ -1,0 +1,109 @@
+@import "reset.scss";
+@import "mixins.scss";
+
+html, body {
+  font-family: Verdana;
+  font-size: 0.91em;
+}
+
+#container {
+  width: 1000px;
+  margin: 0 auto;
+  color: #333;
+}
+
+table.list {
+
+  td, th {
+    vertical-align: middle;
+    border-bottom: 1px solid #888;
+    border-right: 1px solid #888;
+    padding: 10px;
+    &:last-child {
+      border-right: 0;
+    }
+    a {
+      color: #0083c8;
+      text-decoration: none;
+    }
+  }
+
+  td {
+    height: 100%;
+    background: #FFF;
+  }
+
+  th {
+    background: #dfef6a;
+    font-weight: bold;
+  }
+}
+
+#list {
+  border: 1px solid #888;
+  margin: 50px 0 0 0;
+  @include border-radius(10px, 10px, 0px, 10px);
+  padding-bottom: 10px;
+  background: #BDCE48;
+}
+
+#filters {
+  background: #BDCE48;
+  padding: 15px;
+  @include border-radius(10px, 10px, 0px, 0px);
+  border-bottom: 1px solid #888;
+}
+
+#books {
+  padding-bottom: 10px;
+  margin-bottom: 50px;
+}
+
+#filters input {
+  border: 1px solid #859D30;
+  @include border-radius(6px, 6px, 6px, 6px);
+  padding: 5px;
+  background: #fff url('/images/application/field_bg.png') repeat-x top;
+}
+
+.pagination {
+  overflow: hidden;
+  padding-left: 10px;
+  float: right;
+
+  a, span, em {
+    height: 28px;
+    display: block;
+    float: left;
+    padding: 0 10px;
+    line-height: 30px;
+    border-right: 1px solid #888;
+    border-bottom: 1px solid #888;
+    text-decoration: none;
+    color: #000;
+    background: #dfef6a;
+
+    &:first-child {
+      border-left: 1px solid #888;
+      @include box-shadow-inset(0px, -1px, 0, 0, #f6f4ec);
+    }
+    &.disabled {
+      color: #666
+    }
+  }
+
+  span.current {
+    font-weight: bold;
+  }
+
+  .previous_page, .next_page {
+    position: relative;
+  }
+  .prev_page {
+    @include border-radius(0px, 0px, 0px, 10px);
+  }
+  .next_page {
+    @include border-radius(0px, 0px, 10px, 0px);
+  }
+}
+

@@ -1,0 +1,31 @@
+@mixin box-shadow($offset-x, $offset-y, $blur-radius, $spread-radius, $color) {
+  -moz-box-shadow: $offset-x $offset-y $blur-radius $spread-radius $color;
+  -webkit-box-shadow: $offset-x $offset-y $blur-radius $spread-radius $color;
+}
+
+@mixin box-shadow-inset($offset-x, $offset-y, $blur-radius, $spread-radius, $color) {
+  -moz-box-shadow: inset $offset-x $offset-y $blur-radius $spread-radius $color;
+  -webkit-box-shadow: inset $offset-x $offset-y $blur-radius $spread-radius $color;
+}
+
+@mixin border-radius($top, $right, $bottom, $left) {
+  -moz-border-radius: $top $right $bottom $left;
+  // dla safari musimy podawac poszczegolne wielkosci
+  -webkit-border-top-left-radius: $top;
+  -webkit-border-top-right-radius: $right;
+  -webkit-border-bottom-right-radius: $bottom;
+  -webkit-border-bottom-left-radius: $left;
+  border-radius: $top $right $bottom $left;
+}
+
+@mixin text-shadow($offset-x, $offset-y, $blur-radius, $color) {
+  -moz-text-shadow: $offset-x $offset-y $blur-radius $color;
+  text-shadow: $offset-x $offset-y $blur-radius $color;
+}
+
+@mixin border-solid($top, $right, $bottom, $left, $color) {
+  border-top: $top solid $color;
+  border-right: $right solid $color;
+  border-bottom: $bottom solid $color;
+  border-left: $left solid $color;
+}

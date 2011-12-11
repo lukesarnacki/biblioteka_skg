@@ -1,0 +1,20 @@
+%table.list.books
+  %thead
+    %tr
+      %th Tytuł
+      %th Autor
+      %th Wydanie
+      %th Szczegóły
+      %th Kategoria
+      %th Edytuj
+      %th Usuń
+  %tbody
+    - for book in @books
+      %tr{ :id => "book_#{book.id}"}
+        %td= book.title
+        %td= book.author
+        %td= book.edition
+        %td= book.details
+        %td= book.category_id
+        %td.edit= link_to 'Edytuj', edit_book_path(book)
+        %td.delete= link_to 'Usuń', book, :confirm => 'Czy jesteś pewien?', :method => :delete

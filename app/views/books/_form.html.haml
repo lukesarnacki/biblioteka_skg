@@ -1,0 +1,20 @@
+- form_for(@book) do |f|
+
+  .field
+    = f.label :title, t('books.title')
+    = f.text_field :title
+  .field
+    = f.label :author, t('books.author')
+    = f.text_field :author
+  .field
+    = f.label :edition, t('books.edition')
+    = f.text_field :edition
+  .field
+    = f.label :details, t('books.details')
+    = f.text_field :details
+  .field
+    = f.label :category, t('books.category')
+    = f.select :category, options_for_select(@categories.map { |c| [c.name, c.id] } )
+
+  .clear
+    = f.submit
