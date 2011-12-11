@@ -1,4 +1,12 @@
 BibliotekaSkg::Application.routes.draw do
+  resource :home, :only => :index
+  resources :books
+
+  resources :copies, :only => :show
+
+  get '/copies/:id/lend' => 'copies#lend', :as => :lend_copy
+  get '/copies/:id/return' => 'copies#return', :as => :return_copy
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +56,7 @@ BibliotekaSkg::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 

@@ -1,20 +1,12 @@
 %table.list.books
   %thead
     %tr
-      %th Tytuł
-      %th Autor
-      %th Wydanie
-      %th Szczegóły
-      %th Kategoria
-      %th Edytuj
-      %th Usuń
+      %th.title= t('.title')
+      %th.author= t('.author')
+      %th.category= t('.category')
+      %th.available= t('.available')
+      %th.unavailable= t('.borrowed')
+      %th.copies-count= t('.copies_count')
+      %th.destroy= t('.destroy')
   %tbody
-    - for book in @books
-      %tr{ :id => "book_#{book.id}"}
-        %td= book.title
-        %td= book.author
-        %td= book.edition
-        %td= book.details
-        %td= book.category_id
-        %td.edit= link_to 'Edytuj', edit_book_path(book)
-        %td.delete= link_to 'Usuń', book, :confirm => 'Czy jesteś pewien?', :method => :delete
+    = render :partial => 'book', :collection => @books

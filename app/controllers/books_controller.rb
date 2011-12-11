@@ -1,8 +1,6 @@
 class BooksController < ApplicationController
 
-  cattr_reader :per_page
-  @@per_page = 10
-
+  @@per_page = 20
   before_filter :get_objects
 
   def index

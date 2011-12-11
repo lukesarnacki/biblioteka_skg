@@ -1,0 +1,14 @@
+.topbar
+  .topbar-inner
+    .container-fluid
+      %a.brand{:href => "#"}= t('project_name')
+      %ul.nav
+        %li.active
+        %li= link_to t('menu.home'), root_path
+        %li= link_to t('menu.books'), books_path
+        %li= link_to t('menu.about'), '#'
+        %li= link_to t('menu.skg_site'), 'http://skg.uw.edu.pl/', :target => '_blank'
+        %li= link_to t('menu.create_book'), new_book_path
+      -#%p.pull-right
+        Logged in as
+        %a{:href => "#"} username

@@ -1,0 +1,25 @@
+!!!
+%html{:lang => "en"}
+  %head
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag 'application'
+    /[if lt IE 9]
+      = javascript_include_tag 'html5'
+    /[if lt IE 8]
+      = stylesheet_link_tag 'ie7'
+
+    %meta{:charset => "utf-8"}/
+    %title= t('project_name')
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "Lukasz Sarnacki sarniak@gmail.com", :name => "author"}/
+
+    = csrf_meta_tags
+  %body
+    = render 'shared/header'
+    .container
+      .content
+        = yield :hero_unit
+        = yield
+
+        %footer
+          %p © Company 2011
