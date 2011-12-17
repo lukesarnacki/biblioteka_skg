@@ -1,3 +1,16 @@
+module SimpleForm
+  module Inputs
+    class CalendarInput < Base
+      def input
+        v = @builder.object.send(attribute_name)
+        v = v.present? ? v.strftime("%d/%m/%Y") : v
+        input_html_options.merge!(:value => v)
+        @builder.text_field(attribute_name, input_html_options)
+      end
+    end
+  end
+end
+
 # Use this setup block to configure all options available in SimpleForm.
 SimpleForm.setup do |config|
   # Components used by the form builder to generate a complete input. You can remove

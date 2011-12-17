@@ -25,15 +25,24 @@ pl:
       copies_count: "Dostępnych"
       edit: "Edytuj"
       destroy: "Usuń"
+    edit:
+      title: "Edytuj książkę"
+    new:
+      title: "Nowa książka"
 
   copies:
     show:
+      lend_book: "Wypożycz książkę"
+    copy:
       title: "Tytuł"
       author: "Autor"
       category: "Kategoria"
       index: "Indeks"
       publication: "Wydanie"
       details: "Szczegóły"
+    lend_form:
+      from: Od
+      to: Do
 
   will_paginate:
     page_gap: "..."
@@ -187,6 +196,9 @@ pl:
         create: 'Utwórz książkę'
         update: 'Aktualizuj książkę'
         submit: 'Zapisz książkę'
+      order:
+        create: 'Wypożycz książkę'
+        submit: 'Wypożycz książkę'
 
   errors:
     format: "%{attribute} %{message}"
@@ -226,6 +238,26 @@ pl:
     attributes:
       created_at: "Stworzony"
       updated_at: "Zaktualizowany"
+
+      book:
+        title: "Tytuł"
+        author: "Autor"
+        details: "Szczegóły"
+        category: "Kategoria"
+
+      copy:
+        index: "Indeks"
+        publication: "Wydanie"
+        available: "Dostępna"
+
+      order:
+        from: "Data wypożyczenia"
+        to: "Data zwrotu"
+        due: "Należy zwrócić przed"
+        borrowers_name: "Imię i nazwisko"
+        borrowers_contact: "Dane kontaktowe"
+        notes: "Uwagi"
+
     errors:
       messages:
         <<: *errors_messages

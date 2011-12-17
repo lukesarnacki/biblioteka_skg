@@ -3,6 +3,7 @@ BibliotekaSkg::Application.routes.draw do
   resources :books
 
   resources :copies, :only => :show
+  resources :orders, :only => :create
 
   get '/copies/:id/lend' => 'copies#lend', :as => :lend_copy
   get '/copies/:id/return' => 'copies#return', :as => :return_copy

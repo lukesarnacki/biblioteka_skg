@@ -299,7 +299,7 @@
   $(document).bind('close.facebox', function() {
     $(document).unbind('keydown.facebox')
     $('#facebox').fadeOut(function() {
-      $('#facebox .content').removeClass().addClass('content')
+      $('#facebox .content').removeClass().addClass('content').addClass('body')
       $('#facebox .loading').remove()
       $(document).trigger('afterClose.facebox')
     })

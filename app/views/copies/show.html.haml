@@ -1,15 +1,9 @@
 %h2= @copy.title
 
-%dl
-  %dt= t('.index')
-  %dd= @copy.index
-  %dt= t('.title')
-  %dd= @copy.title
-  %dt= t('.author')
-  %dd= @copy.author
-  %dt= t('.publication')
-  %dd= @copy.publication.present? ? @copy.publication : t('none')
-  %dt= t('.category')
-  %dd= @copy.category
-  %dt= t('.details')
-  %dd= @copy.details.present? ? @copy.details : t('none')
+.row
+  .span8
+    = link_to t('.lend_book'), '#', :class => 'btn primary', :id => :lend_copy
+
+= render :partial => 'lend_form', :locals => { :order => @order }
+= render :partial => 'lend_with_authentication_form'
+= render :partial => 'copy', :object => @copy

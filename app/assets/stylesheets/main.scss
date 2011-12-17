@@ -31,12 +31,27 @@ body {
   }
 }
 
-#facebox .content {
-  width: 470px;
-  padding: 20px;
+#facebox {
+  .popup {
+    width: 540px;
+  }
+
+  .content {
+    width: 500px;
+    padding: 20px;
+  }
 }
 
+.form-stacked {
+  padding-left: 0;
+}
 
+a#lend_copy {
+  display: none;
+  margin-bottom: 10px;
+  display: block;
+  float: left;
+}
 
 .pagination {
   text-align: center;

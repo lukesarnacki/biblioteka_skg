@@ -19,5 +19,6 @@ class CopiesController < ApplicationController
 
   def load_objects
     @copy = Copy.find(params[:id])
+    @order = @copy.orders.build
   end
 end

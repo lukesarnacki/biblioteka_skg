@@ -1,0 +1,13 @@
+%dl
+  %dt= t('.index')
+  %dd= @copy.index
+  %dt= t('.title')
+  %dd= @copy.title
+  %dt= t('.author')
+  %dd= @copy.author
+  %dt= t('.publication')
+  %dd= @copy.publication.present? ? @copy.publication : t('none')
+  %dt= t('.category')
+  %dd= @copy.category
+  %dt= t('.details')
+  %dd= @copy.details.present? ? @copy.details : t('none')

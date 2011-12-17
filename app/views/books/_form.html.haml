@@ -1,9 +1,6 @@
 = simple_form_for(@book) do |f|
-
-    = f.input :title, :input_html => { :class => :span9 }
-    = f.input :author, :input_html => { :class => :span9 }
-    = f.input :details, :input_html => { :class => :span9 }
-    = f.input :category, :collection => @categories, :input_html => { :class => :span9 }
-    = f.button :submit, :class => "btn primary"
-
-
+  = f.input :title, :input_html => { :class => :span9 }
+  = f.input :author, :input_html => { :class => :span9 }
+  = f.input :details, :input_html => { :class => :span9 }
+  = f.input :category, :collection => @categories, :input_html => { :class => :span9 }
+  = f.button :submit, :class => "btn primary"

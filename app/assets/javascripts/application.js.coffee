@@ -6,7 +6,11 @@
 #
 #= require jquery
 #= require jquery_ujs
+#= require jquery-ui
 #= require facebox
+#= require copies
 
 $ ->
   $('a[rel*=facebox]').facebox()
+  $(document).bind 'reveal.facebox', ->
+    $( "#order_from, #order_to, #order_due" ).datepicker({ dateFormat: 'dd/mm/yy', monthNames: monthNames, dayNamesMin: dayNamesMin, firstDay: 1 })
