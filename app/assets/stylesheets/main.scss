@@ -40,17 +40,23 @@ body {
     width: 500px;
     padding: 20px;
   }
+
+}
+
+.alert-message .close {
+  font-size: 14px;
 }
 
 .form-stacked {
   padding-left: 0;
 }
 
-a#lend_copy {
-  display: none;
-  margin-bottom: 10px;
+#new-order .submit {
+  padding-top: 19px;
+}
+
+form.check-in .error {
   display: block;
-  float: left;
 }
 
 .pagination {

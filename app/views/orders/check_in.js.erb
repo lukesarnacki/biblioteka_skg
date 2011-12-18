@@ -1,0 +1,15 @@
+<% unless @order.valid? %>
+  $('.alert-message').remove();
+  $(".alert-message").alert()
+  $('#facebox .content').prepend("<%= j render :partial => 'shared/flash', :locals => { :flash => flash }  %>");
+  $('form.check-in').replaceWith("<%= j render :partial => 'orders/check_in', :locals => { :order => @order } %>");
+  $( "#order_to" ).datepicker({ dateFormat: 'dd/mm/yy', monthNames: monthNames, dayNamesMin: dayNamesMin, firstDay: 1 })
+<% else %>
+  $('tr#book-<%= @copy.book.id %>').replaceWith('<%= j render :partial => 'books/book', :locals => { :book => @copy.book } %>');
+  $('tr#book-<%= @copy.book.id %>').effect("highlight", {}, 5000)
+  $(document).trigger('close.facebox');
+  $('tr#book-<%= @copy.book.id %> a[rel*=facebox]').facebox()
+<% end %>
+
+
+

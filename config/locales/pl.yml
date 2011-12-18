@@ -15,6 +15,12 @@ pl:
       books_search_html: "Szukaj książek &raquo;"
       text: "Biblioteka Górska istnieje w SKG już od 1982 roku. Przez ten czas zebrała w swych zbiorach wiele cennych książek, przewodników i map, zarówno polskich i zagranicznych. Myliłby się jednak ten, który widziałby ją jako zbiorowisko starych tomisk pokrytych kurzem - dzięki stałej współpracy z rozmaitymi wydawnictwami, do Biblioteki stale napływają nowiutkie egzemplarze pachnące jeszcze farbą drukarską."
 
+  shared:
+    header:
+      or: "lub"
+      login: "Zaloguj się"
+      register: "Zarejestruj się"
+
   books:
     list:
       title: "Tytuł"
@@ -40,9 +46,25 @@ pl:
       index: "Indeks"
       publication: "Wydanie"
       details: "Szczegóły"
-    lend_form:
+
+  orders:
+    check_out:
       from: Od
       to: Do
+    check_in:
+      lended: "Wypożyczono:"
+
+  flash:
+    actions:
+      create:
+        success: "%{resource_name} został stworzony poprawnie!"
+        error: "Ups, na formie są błędy, popraw je i spróbuj ponownie."
+    orders:
+      create:
+        success: "Książka o indeksie %{index} została wypożyczona!"
+      check_in:
+        success: "Książka o indeksie %{index} została zwrócona!"
+
 
   will_paginate:
     page_gap: "..."
@@ -54,6 +76,7 @@ pl:
       default: "%d-%m-%Y"
       short: "%d %b"
       long: "%B %d, %Y"
+      order: "%d %B, %Y"
 
     order:
       - :day
@@ -199,6 +222,7 @@ pl:
       order:
         create: 'Wypożycz książkę'
         submit: 'Wypożycz książkę'
+        update: 'Zwróć książkę'
 
   errors:
     format: "%{attribute} %{message}"

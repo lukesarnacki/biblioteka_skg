@@ -4,7 +4,8 @@ class CreateCopies < ActiveRecord::Migration
       t.integer :book_id, :null => false
       t.string  :index, :null => false
       t.string  :publication
-      t.boolean :available, :default => true, :null => false
+      #t.boolean :available, :default => true, :null => false
+      t.integer :state, :default => 0, :null => false
       t.timestamps
     end
   end

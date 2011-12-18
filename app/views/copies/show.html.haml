@@ -1,9 +1,10 @@
 %h2= @copy.title
+%hr
 
-.row
-  .span8
-    = link_to t('.lend_book'), '#', :class => 'btn primary', :id => :lend_copy
-
-= render :partial => 'lend_form', :locals => { :order => @order }
-= render :partial => 'lend_with_authentication_form'
+- if @copy.available?
+  -# check why reload is necessary
+  = render :partial => 'orders/check_out', :locals => { :order => @order }
+- else
+  = render :partial => 'orders/check_in', :locals => { :order => @order.reload }
+%hr
 = render :partial => 'copy', :object => @copy

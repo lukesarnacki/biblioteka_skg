@@ -8,17 +8,16 @@ class CopiesController < ApplicationController
   end
 
   def return
-
   end
 
   def lend
-    respond_with @copy, :layout => !request.xhr?
   end
 
   private
 
   def load_objects
     @copy = Copy.find(params[:id])
-    @order = @copy.orders.build
+    @order = @copy.available? ? @copy.orders.build : @copy.last_order
+    @anonymous_user = @order.build_anonymous_user
   end
 end

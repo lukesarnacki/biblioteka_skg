@@ -1,0 +1,22 @@
+= simple_form_for order, :url => check_in_order_path(@order.id), :remote => request.xhr?, :html => { :class => "form-stacked check-in" } do |f|
+  %h3= t('.lended')
+  .row
+    .span4
+      %dl
+        %dt= t('.name')
+        %dd= order.user.name
+        %dt= t('.email')
+        %dd= order.user.email.blank? ? t('none') : order.user.email
+        %dt= t('.phone')
+        %dd= order.user.phone.blank? ? t('none') : order.user.phone
+    .span4
+      %dl
+        %dt= t('.from')
+        %dd= l(order.from, :format => :order)
+        %dt= t('.due')
+        %dd= order.due.blank? ? t('.no_due') : t(order.due, :format => :order)
+        %dt= t('.to')
+        %dd= f.input :to, :as => :calendar, :input_html => { :class => :span2 }, :label => false, :required => false
+  .row
+    .span8
+      = f.button :submit, :class => "btn success"

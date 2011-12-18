@@ -1,4 +1,4 @@
-%tr{ :id => "book_#{book.id}"}
+%tr{ :id => "book-#{book.id}"}
   %td.title= link_to book.title, edit_book_path(book)
   %td.author= book.author
   %td.category= book.category.name if book.category.present?

@@ -1,12 +1,16 @@
 BibliotekaSkg::Application.routes.draw do
+  devise_for :users
+
   resource :home, :only => :index
   resources :books
+  resources :orders
 
   resources :copies, :only => :show
-  resources :orders, :only => :create
-
-  get '/copies/:id/lend' => 'copies#lend', :as => :lend_copy
-  get '/copies/:id/return' => 'copies#return', :as => :return_copy
+  resources :orders, :only => :create do
+    member do
+      put :check_in
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -8,6 +8,9 @@ gem 'haml'
 gem "haml-rails"
 gem 'will_paginate'
 gem 'simple_form'
+gem 'devise'
+gem 'cancan'
+gem 'state_machine'
 
 gem 'jquery-rails'
 

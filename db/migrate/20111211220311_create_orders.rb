@@ -4,9 +4,8 @@ class CreateOrders < ActiveRecord::Migration
       t.date    :from
       t.date    :to
       t.date    :due
-      t.string  :borrowers_name
-      t.string  :borrowers_contact
       t.integer :copy_id
+      t.integer :user_id
       t.string  :notes
 
       t.timestamps

@@ -35,17 +35,17 @@
   margin-bottom:0;
 }
 
-#facebox .close{
+#facebox .facebox-close{
   position:absolute;
   top:5px;
   right:5px;
   padding:2px;
   background:#fff;
 }
-#facebox .close img{
-  opacity:0.3;
+#facebox .facebox-close img{
+  opacity:0.5;
 }
-#facebox .close:hover img{
+#facebox .facebox-close:hover img{
   opacity:1.0;
 }
 

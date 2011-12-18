@@ -19,6 +19,7 @@
     .container
       .content
         = yield :hero_unit
+        = render :partial => "shared/flash", :locals => { :flash => flash }
         = yield
 
       %footer

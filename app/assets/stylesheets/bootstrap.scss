@@ -648,8 +648,8 @@ select:focus {
   outline: 1px dotted #666; }
 
 form .clearfix {
-  &.error {
-    > label, .help-block, .help-inline {
+  &.field_with_errors {
+    > label, .help-block, .help-inline, .error {
       color: #b94a48; }
     input, textarea {
       color: #b94a48;

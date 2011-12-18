@@ -9,6 +9,11 @@
         %li= link_to t('menu.about'), '#'
         %li= link_to t('menu.skg_site'), 'http://skg.uw.edu.pl/', :target => '_blank'
         %li= link_to t('menu.create_book'), new_book_path
-      -#%p.pull-right
-        Logged in as
-        %a{:href => "#"} username
+      %p.pull-right
+        - if user_signed_in?
+          Logged in as
+          = link_to current_user.name, '#'
+        - else
+          = link_to t('.login'), new_user_session_path
+          %span= t(".or")
+          = link_to t('.register'), new_user_registration_path
