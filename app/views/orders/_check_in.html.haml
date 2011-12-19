@@ -16,7 +16,7 @@
         %dt= t('.due')
         %dd= order.due.blank? ? t('.no_due') : t(order.due, :format => :order)
         %dt= t('.to')
-        %dd= f.input :to, :as => :calendar, :input_html => { :class => :span2 }, :label => false, :required => false
+        %dd= f.input :to, :as => :calendar, :input_html => { :class => :span2 }, :label => false
   .row
     .span8
       = f.button :submit, :class => "btn success"

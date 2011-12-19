@@ -7,7 +7,8 @@
 #= require jquery
 #= require jquery_ujs
 #= require jquery-ui
-#= require bootstrap_alerts
+#= require bootstrap-alerts
+#= require bootstrap-dropdown
 #= require helpers
 #= require facebox
 #= require copies
@@ -22,3 +23,5 @@ $ ->
     $( "#order_from, #order_to, #order_due" ).datepicker({ dateFormat: 'dd/mm/yy', monthNames: monthNames, dayNamesMin: dayNamesMin, firstDay: 1 })
   $( "#order_from, #order_to, #order_due" ).datepicker({ dateFormat: 'dd/mm/yy', monthNames: monthNames, dayNamesMin: dayNamesMin, firstDay: 1 })
   $(".alert-message").alert()
+
+  $('#topbar').dropdown()

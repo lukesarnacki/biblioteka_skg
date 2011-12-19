@@ -7,6 +7,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.trackable
       t.string :name
       t.string :phone
+      t.boolean :admin, :null => false, :default => false
 
       # t.encryptable
       # t.confirmable
@@ -17,7 +18,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :users, :email
+    add_index :users, :email,                :unique => true
     add_index :users, :reset_password_token, :unique => true
     # add_index :users, :confirmation_token,   :unique => true
     # add_index :users, :unlock_token,         :unique => true

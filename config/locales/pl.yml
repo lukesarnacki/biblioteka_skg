@@ -20,6 +20,7 @@ pl:
       or: "lub"
       login: "Zaloguj się"
       register: "Zarejestruj się"
+      logout: "Wyloguj się"
 
   books:
     list:
@@ -54,10 +55,27 @@ pl:
     check_in:
       lended: "Wypożyczono:"
 
+  devise:
+    sessions:
+      new:
+        sign_in: "Zaloguj się"
+    registrations:
+      new:
+        sign_up: "Zarejestruj się"
+      edit:
+        sign_up: "Zarejestruj się"
+    shared:
+      links:
+        sign_in: "Zaloguj się"
+        sign_up: "Zarejestruj się"
+        forgot_your_password: "Zapomniałaś/eś hasła?"
+
   flash:
     actions:
       create:
         success: "%{resource_name} został stworzony poprawnie!"
+        error: "Ups, na formie są błędy, popraw je i spróbuj ponownie."
+      update:
         error: "Ups, na formie są błędy, popraw je i spróbuj ponownie."
     orders:
       create:
@@ -268,6 +286,7 @@ pl:
         author: "Autor"
         details: "Szczegóły"
         category: "Kategoria"
+        category_id: "Kategoria"
 
       copy:
         index: "Indeks"
@@ -281,6 +300,14 @@ pl:
         borrowers_name: "Imię i nazwisko"
         borrowers_contact: "Dane kontaktowe"
         notes: "Uwagi"
+
+      user:
+        phone: "Telefon"
+        email: "Email"
+        name: "Imię i Nazwisko"
+        password: "Hasło"
+        remember_me: "Zapamiętaj mnie"
+        password_confirmation: "Powtórz hasło"
 
     errors:
       messages:

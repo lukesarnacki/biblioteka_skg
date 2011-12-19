@@ -4,9 +4,11 @@
       %th.title= t('.title')
       %th.author= t('.author')
       %th.category= t('.category')
-      %th.available= t('.available')
-      %th.unavailable= t('.borrowed')
+      - if can? :manage, :all
+        %th.available= t('.available')
+        %th.unavailable= t('.borrowed')
       %th.copies-count= t('.copies_count')
-      %th.destroy= t('.destroy')
+      - if can? :manage, :all
+        %th.destroy= t('.destroy')
   %tbody
     = render :partial => 'book', :collection => @books

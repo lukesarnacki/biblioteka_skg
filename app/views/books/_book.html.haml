@@ -2,7 +2,9 @@
   %td.title= link_to book.title, edit_book_path(book)
   %td.author= book.author
   %td.category= book.category.name if book.category.present?
-  %td.available= available_copies(book)
-  %td.unavailable= unavailable_copies(book)
+  - if can? :manage, :all
+    %td.available= available_copies(book)
+    %td.unavailable= unavailable_copies(book)
   %td.copies-count= copies_count(book)
-  %td.destroy= link_to 'Usuń', book, :confirm => 'Czy jesteś pewien?', :method => :delete
+  - if can? :manage, :all
+    %td.destroy= link_to 'Usuń', book, :confirm => 'Czy jesteś pewien?', :method => :delete

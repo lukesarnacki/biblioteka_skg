@@ -1,10 +1,11 @@
 class BooksController < ApplicationController
 
   @@per_page = 20
+  load_and_authorize_resource
   before_filter :get_objects
 
   def index
-    @books = Book.order('title ASC').paginate :page => params[:page]
+    @books = @books.order('title ASC').paginate :page => params[:page]
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,8 +16,6 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.xml
   def show
-    @book = Book.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @book }
@@ -26,8 +25,7 @@ class BooksController < ApplicationController
   # GET /books/new
   # GET /books/new.xml
   def new
-    @book = Book.new
-
+    @copies = [@book.copies.build]
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @book }
@@ -36,19 +34,18 @@ class BooksController < ApplicationController
 
   # GET /books/1/edit
   def edit
-    @book = Book.find(params[:id])
+    @copies = @book.copies
   end
 
   # POST /books
   # POST /books.xml
   def create
-    @book = Book.new(params[:book])
-
     respond_to do |format|
       if @book.save
-        format.html { redirect_to(@book, :notice => 'Book was successfully created.') }
+        format.html { redirect_to(books_path(:anchor => "book_#{@book.id}"), :success => 'Book was successfully created.') }
         format.xml  { render :xml => @book, :status => :created, :location => @book }
       else
+        raise @book.copies.inspect
         format.html { render :action => "new" }
         format.xml  { render :xml => @book.errors, :status => :unprocessable_entity }
       end
@@ -58,13 +55,12 @@ class BooksController < ApplicationController
   # PUT /books/1
   # PUT /books/1.xml
   def update
-    @book = Book.find(params[:id])
-
     respond_to do |format|
       if @book.update_attributes(params[:book])
-        format.html { redirect_to(@book, :notice => 'Book was successfully updated.') }
+        format.html { redirect_to(books_path(:anchor => "book_#{@book.id}"), :success => 'Book was successfully updated.') }
         format.xml  { head :ok }
       else
+        flash[:error] = t('flash.actions.create.error')
         format.html { render :action => "edit" }
         format.xml  { render :xml => @book.errors, :status => :unprocessable_entity }
       end
@@ -74,7 +70,6 @@ class BooksController < ApplicationController
   # DELETE /books/1
   # DELETE /books/1.xml
   def destroy
-    @book = Book.find(params[:id])
     @book.destroy
 
     respond_to do |format|

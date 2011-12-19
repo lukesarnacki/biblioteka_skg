@@ -1,7 +1,7 @@
 = simple_form_for order, :remote => request.xhr?, :html => { :class => "form-stacked", :id => 'new-order' } do |f|
   .row
     = f.simple_fields_for :anonymous_user do |user|
-      .span4= user.input :name, :input_html => { :class => :span4 }, :required => false
+      .span4= user.input :name, :input_html => { :class => :span4 }
     .span2= f.input :from, :as => :calendar, :input_html => { :class => :span2 }, :label => t('.from')
     .span2= f.input :due, :as => :calendar, :input_html => { :class => :span2 }, :label => t('.to')
   .row
