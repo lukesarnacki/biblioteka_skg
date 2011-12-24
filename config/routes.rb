@@ -2,13 +2,20 @@ BibliotekaSkg::Application.routes.draw do
   devise_for :users
 
   resource :home, :only => :index
-  resources :books
+  resources :books do
+    member do
+      match :borrow
+    end
+  end
   resources :orders
 
   resources :copies, :only => :show
-  resources :orders, :only => :create do
+  resources :orders, :only => [] do
     member do
       put :check_in
+    end
+    collection do
+      post :check_out
     end
   end
 

@@ -23,6 +23,12 @@ pl:
       logout: "Wyloguj się"
 
   books:
+    borrow:
+      have_account_html: "Mam już konto &raquo;"
+      want_account_html: "Nie mam konta i chcę założyć &raquo;"
+      dont_want_account_html: "Nie chcę zakładać konta &raquo;"
+
+
     list:
       title: "Tytuł"
       author: "Autor"

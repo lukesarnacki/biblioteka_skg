@@ -1,4 +1,4 @@
-= simple_form_for order, :remote => request.xhr?, :html => { :class => "form-stacked", :id => 'new-order' } do |f|
+= simple_form_for @order, :url => check_out_orders_path, :remote => request.xhr?, :html => { :class => "form-stacked", :id => 'new-order' } do |f|
   .row
     = f.simple_fields_for :anonymous_user do |user|
       .span4= user.input :name, :input_html => { :class => :span4 }

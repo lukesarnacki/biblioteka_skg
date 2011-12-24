@@ -3,6 +3,7 @@ class BooksController < ApplicationController
   @@per_page = 20
   load_and_authorize_resource
   before_filter :get_objects
+  respond_to :html
 
   def index
     @books = @books.order('title ASC').paginate :page => params[:page]
@@ -76,6 +77,10 @@ class BooksController < ApplicationController
       format.html { redirect_to(books_url) }
       format.xml  { head :ok }
     end
+  end
+
+  def borrow
+    respond_with @book, :layout => !request.xhr?
   end
 
   private

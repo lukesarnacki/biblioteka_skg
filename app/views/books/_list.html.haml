@@ -8,6 +8,8 @@
         %th.available= t('.available')
         %th.unavailable= t('.borrowed')
       %th.copies-count= t('.copies_count')
+      %th.borrow
+        = t('.borrow')
       - if can? :manage, :all
         %th.destroy= t('.destroy')
   %tbody

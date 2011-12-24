@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
 
   respond_to :html, :js
 
-  def create
+  def check_out
     @order = Order.create(params[:order])
     @copy = @order.copy
 

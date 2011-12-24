@@ -1,0 +1,24 @@
+#borrow-book
+  %h2= @book.title
+  %hr
+  = link_to t('.have_account_html'), '#'
+  %hr
+  = link_to t('.want_account_html'), '#'
+  %hr
+  = link_to t('.dont_want_account_html'), '#'
+  %hr
+
+
+  .row
+    .span4
+      %dl
+        %dt= t('.title')
+        %dd= @book.title
+        %dt= t('.author')
+        %dd= @book.author
+    .span4
+      %dl
+        %dt= t('.category')
+        %dd= @book.category
+        %dt= t('.details')
+        %dd= @book.details.present? ? @book.details : t('none')

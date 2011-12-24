@@ -571,9 +571,9 @@ ActiveRecord::Schema.define(:version => 20111218010709) do
     t.integer  "book_id",                    :null => false
     t.string   "index",                      :null => false
     t.string   "publication"
+    t.integer  "state",       :default => 0, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "state",       :default => 1, :null => false
   end
 
   create_table "library_orders", :force => true do |t|
@@ -581,10 +581,10 @@ ActiveRecord::Schema.define(:version => 20111218010709) do
     t.date     "to"
     t.date     "due"
     t.integer  "copy_id"
+    t.integer  "user_id"
     t.string   "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
   end
 
   create_table "library_schema_migrations", :id => false, :force => true do |t|
@@ -594,8 +594,8 @@ ActiveRecord::Schema.define(:version => 20111218010709) do
   add_index "library_schema_migrations", ["version"], :name => "library_unique_schema_migrations", :unique => true
 
   create_table "library_users", :force => true do |t|
-    t.string   "email",                                 :default => "", :null => false
-    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
+    t.string   "email",                                 :default => "",    :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => "",    :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -605,13 +605,14 @@ ActiveRecord::Schema.define(:version => 20111218010709) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "name"
+    t.string   "phone"
+    t.boolean  "admin",                                 :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "type"
-    t.string   "phone"
   end
 
-  add_index "library_users", ["email"], :name => "index_library_users_on_email"
+  add_index "library_users", ["email"], :name => "index_library_users_on_email", :unique => true
   add_index "library_users", ["reset_password_token"], :name => "index_library_users_on_reset_password_token", :unique => true
 
   create_table "phpbb3_acl_groups", :id => false, :force => true do |t|
