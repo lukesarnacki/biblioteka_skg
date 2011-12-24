@@ -1,5 +1,6 @@
 class Order < ActiveRecord::Base
   belongs_to :copy
+  belongs_to :book
   belongs_to :user, :class_name => "AbstractUser"
   belongs_to :anonymous_user, :foreign_key => :user_id
   accepts_nested_attributes_for :anonymous_user
@@ -9,7 +10,7 @@ class Order < ActiveRecord::Base
   before_destroy :auto_check_in
 
   validates_presence_of :to, :on => :update
-  validates :from, :presence => true
+  validates :from, :presence => true, :if => :copy
 
   def set_from
     self.from = Date.today
@@ -27,7 +28,9 @@ class Order < ActiveRecord::Base
 
   private
   def auto_check_out
-    self.copy.check_out
+    if self.copy
+      self.copy.check_out
+    end
   end
 
   def auto_check_in

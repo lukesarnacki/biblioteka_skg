@@ -80,6 +80,9 @@ class BooksController < ApplicationController
   end
 
   def borrow
+    @order = @book.orders.build
+    @user = user_signed_in? ? current_user : User.new
+
     respond_with @book, :layout => !request.xhr?
   end
 

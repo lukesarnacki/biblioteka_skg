@@ -5,6 +5,7 @@ class CreateOrders < ActiveRecord::Migration
       t.date    :to
       t.date    :due
       t.integer :copy_id
+      t.integer :book_id
       t.integer :user_id
       t.string  :notes
 

@@ -1,12 +1,30 @@
 #borrow-book
   %h2= @book.title
   %hr
-  = link_to t('.have_account_html'), '#'
+
+  = simple_form_for :orders_builder, :url => orders_path, :remote => request.xhr? do |f|
+    = f.simple_fields_for :order, @order do |f|
+      = f.input :book_id, :as => :hidden
+    = link_to t('.have_account_html'), '#', :rel => :facebox
+    = f.simple_fields_for :user, @user do |f|
+      = f.input :email
+      = f.input :password, :required => true
+    = f.submit :class => 'btn primary', :name => 'login'
+
   %hr
-  = link_to t('.want_account_html'), '#'
-  %hr
-  = link_to t('.dont_want_account_html'), '#'
-  %hr
+  = simple_form_for :orders_builder, :url => orders_path, :remote => request.xhr? do |f|
+    = link_to t('.want_account_html'), '#'
+    = f.simple_fields_for :user, @user do |f|
+      = f.input :name, :required => true, :autofocus => true
+      = f.input :email, :required => true, :autofocus => true
+      = f.input :phone, :required => false, :autofocus => true
+      = f.input :password, :required => true
+      = f.input :password_confirmation, :required => true
+    = f.submit :class => 'btn primary', :name => 'register'
+    %hr
+    = link_to t('.dont_want_account_html'), '#'
+    %hr
+
 
 
   .row

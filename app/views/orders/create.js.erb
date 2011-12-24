@@ -1,0 +1,9 @@
+<% if @order.new_record? %>
+  $('.alert-message').remove();
+  $(".alert-message").alert()
+  $('#facebox .content').prepend("<%= j render :partial => 'shared/flash', :locals => { :flash => flash }  %>");
+<% else %>
+  $(document).trigger('close.facebox');
+<% end %>
+
+
