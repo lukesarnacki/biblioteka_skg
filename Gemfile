@@ -3,6 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.1.3'
 
 gem 'mysql2'
+gem 'pg'
 gem 'foreigner'
 gem 'haml'
 gem "haml-rails"
