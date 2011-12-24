@@ -3,4 +3,4 @@ TODO:
 1. Zadbać o liczenie książek niedostępnych / niewypożyczonych. Jeśli order ma kopię, to znaczy, że książka jest wypożyczona,
    jeśli ma książkę, to znaczy, ze ktoś tylko zaznaczył, że chce ją wypożyczyć.
 2. Order nie może mnieć na raz książki i kopii.
-3 Zastanowić się, czy nie zrobić innej klasy do tej prośby wypożyczenia (chyba bedzie lepiej).
+3 Zastanowić się, czy nie zrobić innej klasy do tej prośby wypożyczenia - requisition? (chyba bedzie lepiej i mniej kręcenia).

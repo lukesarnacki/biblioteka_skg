@@ -3,8 +3,8 @@
 
 - if @copy.available?
   -# check why reload is necessary
-  = render :partial => 'orders/check_out', :locals => { :order => @order }
+  = render :partial => 'check_out', :locals => { :order => @order }
 - else
-  = render :partial => 'orders/check_in', :locals => { :order => @order.reload }
+  = render :partial => 'check_in', :locals => { :order => @order.reload }
 %hr
 = render :partial => 'copy', :object => @copy

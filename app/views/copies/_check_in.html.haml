@@ -1,4 +1,4 @@
-= simple_form_for order, :url => check_in_order_path(@order.id), :remote => request.xhr?, :html => { :class => "form-stacked check-in" } do |f|
+= simple_form_for order, :url => check_in_copy_path(@order.id), :remote => request.xhr?, :html => { :class => "form-stacked check-in" } do |f|
   %h3= t('.lended')
   .row
     .span4

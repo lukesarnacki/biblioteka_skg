@@ -9,8 +9,7 @@ BibliotekaSkg::Application.routes.draw do
   end
   resources :orders
 
-  resources :copies, :only => :show
-  resources :orders, :only => [] do
+  resources :copies, :only => :show do
     member do
       put :check_in
     end
