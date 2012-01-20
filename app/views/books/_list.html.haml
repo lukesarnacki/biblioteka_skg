@@ -7,9 +7,10 @@
       - if can? :manage, :all
         %th.available= t('.available')
         %th.unavailable= t('.borrowed')
+        %th.unavailable= t('.reserved')
       %th.copies-count= t('.copies_count')
-      %th.borrow
-        = t('.borrow')
+      %th.reserve
+        = t('.reserve')
       - if can? :manage, :all
         %th.destroy= t('.destroy')
   %tbody

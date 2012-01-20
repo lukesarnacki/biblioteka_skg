@@ -4,10 +4,11 @@ BibliotekaSkg::Application.routes.draw do
   resource :home, :only => :index
   resources :books do
     member do
-      match :borrow
+      match :reserve
     end
   end
-  resources :orders
+
+  resources :reservations, :only => :create
 
   resources :copies, :only => :show do
     member do

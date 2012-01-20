@@ -1,0 +1,17 @@
+.register
+  = simple_form_for :reservation_builder, :url => reservations_path, :remote => request.xhr?, :html => { :class => "form-stacked", :id => "register-and-reserve" } do |f|
+    = f.simple_fields_for :user, @reservation_builder.user do |f|
+      .row
+        .span4= f.input :name, :required => true, :autofocus => true, :input_html => { :class => :span4 }
+        .span4= f.input :email, :required => true, :autofocus => true, :input_html => { :class => :span4 }
+      .row
+        .span4= f.input :phone, :required => false, :autofocus => true, :input_html => { :class => :span4 }
+      .row
+        .span4= f.input :password, :required => true, :input_html => { :class => :span4 }
+        .span4= f.input :password_confirmation, :required => true, :input_html => { :class => :span4 }
+    = f.simple_fields_for :reservation, @reservation do |f|
+      = f.input :book_id, :as => :hidden
+      .row
+        .span8= f.input :notes, :input_html => { :class => :span8 }, :label => t('.notes')
+    .row
+      .span8= f.submit t('.submit'), :class => 'btn primary', :name => 'register'

@@ -1,0 +1,7 @@
+= simple_form_for :reservation_builder, :url => reservations_path, :remote => request.xhr?, :html => { :class => "form-stacked" } do |f|
+  = f.simple_fields_for :reservation, @reservation do |f|
+    = f.input :book_id, :as => :hidden
+    .row
+      .span8= f.input :notes, :input_html => { :class => :span8 }
+    .row
+      .span8= f.submit :class => 'btn primary'

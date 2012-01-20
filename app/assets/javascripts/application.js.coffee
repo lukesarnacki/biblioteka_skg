@@ -16,12 +16,13 @@
 
 $ ->
   $('a[rel*=facebox]').facebox()
-  #$('a[rel*=facebox]').live "mousedown", ->
-  #  $(this).facebox()
 
   $(document).bind 'reveal.facebox', ->
+    $( "#accordion" ).accordion({ collapsible: true, active: false, autoHeight: false })
     $( "#order_from, #order_to, #order_due" ).datepicker({ dateFormat: 'dd/mm/yy', monthNames: monthNames, dayNamesMin: dayNamesMin, firstDay: 1 })
+    $('#ui-datepicker-div').wrap('<div class="jquery-ui" />')
   $( "#order_from, #order_to, #order_due" ).datepicker({ dateFormat: 'dd/mm/yy', monthNames: monthNames, dayNamesMin: dayNamesMin, firstDay: 1 })
+  $('#ui-datepicker-div').wrap('<div class="jquery-ui" />')
   $(".alert-message").alert()
 
   $('#topbar').dropdown()

@@ -1,0 +1,26 @@
+#borrow-book
+  %h2= t(".reserve", :title => @book.title)
+
+  - if user_signed_in?
+    = render :partial => 'reserve'
+  - else
+    #accordion
+      = link_to t('.have_account_html'), '#', :rel => :facebox
+      = render :partial => 'login_and_reserve'
+      = link_to t('.want_account_html'), '#'
+      = render :partial => 'register_and_reserve'
+      = render :partial => 'anonymous_reservation'
+
+  .row
+    .span4
+      %dl
+        %dt= t('.title')
+        %dd= @book.title
+        %dt= t('.author')
+        %dd= @book.author
+    .span4
+      %dl
+        %dt= t('.category')
+        %dd= @book.category
+        %dt= t('.details')
+        %dd= @book.details.present? ? @book.details : t('none')

@@ -4,6 +4,12 @@ body {
 
 #books .books.list {
   tr {
+    td.reserve .reserved {
+      color: #46A546;
+    }
+    td.reserve .none {
+      color: #C43C35;
+    }
     .label {
       white-space: normal;
       display: block;
@@ -31,17 +37,29 @@ body {
   }
 }
 
-#borrow-book hr {
-  margin: 10px 0 9px 0;
+#borrow-book {
+  hr {
+    margin: 10px 0 9px 0;
+  }
+  #accordion {
+    border-bottom: 1px solid #DDD;
+    margin-bottom: 15px;
+    a.ui-accordion-header {
+      font-weight: bold;
+      display: block;
+      border-top: 1px solid #DDD;
+      padding: 10px 5px;
+    }
+  }
 }
 
 #facebox {
   .popup {
-    width: 540px;
+    width: 510px;
   }
 
   .content {
-    width: 500px;
+    width: 470px;
     padding: 20px;
   }
 

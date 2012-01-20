@@ -5,8 +5,15 @@
   - if can? :manage, :all
     %td.available= available_copies(book)
     %td.unavailable= unavailable_copies(book)
+    %td.reserved
   %td.copies-count= copies_count(book)
-  %td
-    = link_to t('.borrow'), borrow_book_path(book), :class => 'btn primary', :rel => :facebox
+  %td.reserve
+    - if book.reserved_for?(current_user)
+      %span.reserved= t('.reserved')
+    - else
+      - if book.available?
+        = link_to t('.reserve'), reserve_book_path(book), :class => 'btn primary', :rel => :facebox
+      - else
+        %span.none= t("none").capitalize
   - if can? :manage, :all
     %td.destroy= link_to 'Usuń', book, :confirm => 'Czy jesteś pewien?', :method => :delete

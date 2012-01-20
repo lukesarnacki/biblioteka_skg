@@ -23,11 +23,22 @@ pl:
       logout: "Wyloguj się"
 
   books:
-    borrow:
+    login_and_reserve:
+      submit: "Zaloguj się i zamów książkę"
+      notes: "Notatki do zamówienia"
+    register_and_reserve:
+      submit: "Zarejestruj się i zamów książkę"
+      notes: "Notatki do zamówienia"
+    anonymous_reservation:
+      dont_want_account_html: "Nie chcę zakładać konta &raquo;"
+      dont_want_account_explanation_html: "Żeby wypożyczyć książkę nie posiadając konta potrzebne będzie trochę inwencji twórczej i starodawnych metod. Skontaktuj się z obsługą biblioteki pod adresem <strong><a href=\"mailto:biblioteka@skg.uw.edu.pl\">biblioteka[at]skg.uw.edu.pl</a></strong> podając tytuł i autora wybranej książki."
+    book:
+      reserved: "Zamówiona"
+      reserve: "Zamów"
+    reserve:
       have_account_html: "Mam już konto &raquo;"
       want_account_html: "Nie mam konta i chcę założyć &raquo;"
-      dont_want_account_html: "Nie chcę zakładać konta &raquo;"
-
+      reserve: "Zamów: %{title}"
 
     list:
       title: "Tytuł"
@@ -38,6 +49,7 @@ pl:
       copies_count: "Dostępnych"
       edit: "Edytuj"
       destroy: "Usuń"
+      reserve: "Zamów"
     edit:
       title: "Edytuj książkę"
     new:
@@ -45,6 +57,7 @@ pl:
 
   copies:
     show:
+      check_out: "Wypożycz: %{title}"
       lend_book: "Wypożycz książkę"
     copy:
       title: "Tytuł"

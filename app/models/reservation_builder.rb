@@ -1,4 +1,4 @@
-class OrdersBuilder
+class ReservationBuilder
   extend ActiveModel::Naming
   include ActiveModel::AttributeMethods
   include ActiveModel::Conversion
@@ -6,32 +6,42 @@ class OrdersBuilder
   include ActiveModel::Validations
 
   attribute_method_suffix "", "="
-  define_attribute_methods %w[user order book]
+  define_attribute_methods %w[user reservation book]
 
-  #attr_accessible :order
+  #attr_accessible :reservation
   attr_reader :attributes
 
-  def initialize(attrs, auth = nil, current_user = nil)
+  validate :user_presence
+
+  def initialize(attrs = {}, auth = nil, current_user = nil)
 
     @attributes = {}
 
     case auth
     when :login
       @user = User.find_for_authentication(:email => attrs[:user][:email])
-      authenticated = @user.valid_password?(attrs[:user][:password])
+
+      if @user.nil?
+        @authenticated = false
+        @user = User.new(:email => attrs[:user][:email])
+        @user.errors.add(:email, @user.errors.generate_message(:email, :invalid))
+      else
+        @authenticated = @user.valid_password?(attrs[:user][:password])
+        @user.errors.add(:password, @user.errors.generate_message(:password, :invalid)) unless @uthenticated
+      end
     when :register
       @user = User.new(attrs[:user])
-      authenticated = @user.save
+      @authenticated = @user.save
     else
+      @authenticated = current_user.present?
       @user = current_user
-      aurhenticated = true
     end
 
-    @order = Order.new(attrs[:order])
-    @order.user = @user if authenticated
+    @reservation = Reservation.new(attrs[:reservation])
+    @reservation.user = @user if @authenticated
 
     @attributes[:user] = @user
-    @attributes[:order] = @order
+    @attributes[:reservation] = @reservation
   end
 
   def attributes=(attributes)
@@ -39,7 +49,7 @@ class OrdersBuilder
   end
 
   def save
-    valid? && @order.save
+    valid? && @reservation.save
   end
 
 
@@ -57,7 +67,7 @@ class OrdersBuilder
     unless @user
       errors.add(:user, errors.generate_message(:user, :empty))
     else
-      unless @user.valid?
+      unless @authenticated
         errors.add(:user, errors.generate_message(:user, :invalid))
       end
     end

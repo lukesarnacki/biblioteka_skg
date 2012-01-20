@@ -1,0 +1,14 @@
+<% if @reservation_builder.reservation.new_record? %>
+  $('.alert-message').remove();
+  $(".alert-message").alert()
+  $('#facebox .content').prepend("<%= j render :partial => 'shared/flash', :locals => { :flash => flash }  %>");
+  $('form#register-and-reserve').replaceWith("<%= j render :partial => 'books/register_and_reserve' %>");
+  $('form#login-and-reserve').replaceWith("<%= j render :partial => 'books/login_and_reserve' %>");
+<% else %>
+  $('tr#book-<%= @book.id %>').replaceWith('<%= j render :partial => 'books/book', :locals => { :book => @book } %>');
+  $('tr#book-<%= @book.id %>').effect("highlight", {}, 5000)
+  $(document).trigger('close.facebox');
+  $('tr#book-<%= @book.id %> a[rel*=facebox]').facebox()
+<% end %>
+
+

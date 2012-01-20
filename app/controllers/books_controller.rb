@@ -79,8 +79,9 @@ class BooksController < ApplicationController
     end
   end
 
-  def borrow
-    @order = @book.orders.build
+  def reserve
+    @reservation_builder = ReservationBuilder.new
+    @reservation = @book.reservations.build
     @user = user_signed_in? ? current_user : User.new
 
     respond_with @book, :layout => !request.xhr?

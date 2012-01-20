@@ -15,7 +15,7 @@ class CopiesController < ApplicationController
       flash_message(:error, t("flash.actions.create.error"))
     end
 
-    respond_with @order, :location => request.xhr? ? @order : books_path, :layout => !request.xhr?
+    respond_with @order, :location => request.xhr? ? check_out_copies_path : books_path, :layout => !request.xhr?
   end
 
   def check_in
@@ -27,7 +27,7 @@ class CopiesController < ApplicationController
       flash_message(:error, t("flash.actions.create.error"))
     end
 
-    respond_with @order, :location => request.xhr? ? @order : books_path, :layout => !request.xhr?
+    respond_with @order, :location => request.xhr? ? check_in_copy_path(@copy) : books_path, :layout => !request.xhr?
   end
 
   private

@@ -9,7 +9,7 @@ class Ability
       can :manage, :all
     else
       can :read, Book
-      can :borrow, Book
+      can :reserve, Book
     end
 
     # Define abilities for the passed in user here. For example:
