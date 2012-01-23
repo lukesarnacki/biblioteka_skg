@@ -2,6 +2,6 @@
   = f.simple_fields_for :reservation, @reservation do |f|
     = f.input :book_id, :as => :hidden
     .row
-      .span8= f.input :notes, :input_html => { :class => :span8 }
+      .span8= f.input :notes, :input_html => { :class => :span8 }, :label => t('.notes')
     .row
       .span8= f.submit :class => 'btn primary'

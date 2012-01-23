@@ -1,0 +1,14 @@
+table.list.books tr {
+  th, td.reserved, td.available-count {
+    text-align: center;
+  }
+
+  td.reserved {
+    &.true {
+      font-weight: bold;
+    }
+    &.false {
+      color: #AAA;
+    }
+  }
+}

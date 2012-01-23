@@ -5,10 +5,10 @@
       %th.author= t('.author')
       %th.category= t('.category')
       - if can? :manage, :all
-        %th.available= t('.available')
+        %th.available= t('.to_be_borrowed')
         %th.unavailable= t('.borrowed')
-        %th.unavailable= t('.reserved')
-      %th.copies-count= t('.copies_count')
+        %th.reserved= t('.reserved')
+      %th.available-count= t('.copies_count')
       %th.reserve
         = t('.reserve')
       - if can? :manage, :all

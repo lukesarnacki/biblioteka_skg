@@ -17,12 +17,15 @@
 $ ->
   $('a[rel*=facebox]').facebox()
 
-  $(document).bind 'reveal.facebox', ->
-    $( "#accordion" ).accordion({ collapsible: true, active: false, autoHeight: false })
+  initializeJqueryUi = ->
     $( "#order_from, #order_to, #order_due" ).datepicker({ dateFormat: 'dd/mm/yy', monthNames: monthNames, dayNamesMin: dayNamesMin, firstDay: 1 })
     $('#ui-datepicker-div').wrap('<div class="jquery-ui" />')
-  $( "#order_from, #order_to, #order_due" ).datepicker({ dateFormat: 'dd/mm/yy', monthNames: monthNames, dayNamesMin: dayNamesMin, firstDay: 1 })
-  $('#ui-datepicker-div').wrap('<div class="jquery-ui" />')
-  $(".alert-message").alert()
 
+  initializeJqueryUi()
+  $(document).bind 'reveal.facebox', ->
+    initializeJqueryUi()
+    $( "#accordion" ).accordion({ collapsible: true, active: false, autoHeight: false })
+
+  $(".alert-message").alert()
   $('#topbar').dropdown()
+

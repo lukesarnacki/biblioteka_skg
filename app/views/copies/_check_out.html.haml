@@ -1,16 +1,18 @@
-= simple_form_for @order, :url => check_out_copies_path, :remote => request.xhr?, :html => { :class => "form-stacked", :id => 'new-order' } do |f|
+= simple_form_for @order, :url => check_out_copies_path, :remote => request.xhr?, :html => { :class => "form-stacked", :id => 'check-out' } do |f|
+  = render :partial => 'reservations'
+  - unless @show_user_fields
+    .row.lend-another-user
+      .span= radio_button_tag 'order[user_id]', 'anonymous_user', @anonymous_user_choosed, :id => 'order_user_id_nil'
+      .span= label_tag "order_user_id_nil", t('.another_user')
+    %hr
+  = render :partial => 'user_fields', :locals => { :f => f }
+  .user-data
   .row
-    = f.simple_fields_for :anonymous_user do |user|
-      .span4= user.input :name, :input_html => { :class => :span4 }
     .span2= f.input :from, :as => :calendar, :input_html => { :class => :span2 }, :label => t('.from')
     .span2= f.input :due, :as => :calendar, :input_html => { :class => :span2 }, :label => t('.to')
-  .row
-    = f.simple_fields_for :anonymous_user do |user|
-      .span4= user.input :email, :input_html => { :class => :span4 }
-      .span4= user.input :phone, :input_html => { :class => :span4 }
-  .row
     .span4= f.input :notes, :input_html => { :class => :span4 }
-    .span4.submit
+  .row
+    .span8.submit
       = hidden_field_tag 'order[copy_id]', @copy.id
       = f.button :submit, :class => "btn success"
       =# link_to t('.cancel'), '#', :class => "btn cancel"

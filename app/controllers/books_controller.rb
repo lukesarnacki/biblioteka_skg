@@ -6,6 +6,8 @@ class BooksController < ApplicationController
   respond_to :html
 
   def index
+    @books = @books.where("LOWER(title) LIKE ?", "%#{params[:query]}%") if params[:query]
+    @books = @books.where(:category_id => params[:category_id]) if params[:category_id]
     @books = @books.order('title ASC').paginate :page => params[:page]
 
     respond_to do |format|

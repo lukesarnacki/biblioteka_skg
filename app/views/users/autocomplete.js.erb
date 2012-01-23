@@ -1,0 +1,3 @@
+$('form#check-out .user-data').replaceWith("<%= j render :partial => 'copies/user_data' %>");
+$('form#check-out .user-fields input').attr('disabled', true)
+$('form#check-out .user-fields').css('display', 'none');

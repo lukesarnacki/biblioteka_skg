@@ -11,7 +11,12 @@ class Book < ActiveRecord::Base
   end
 
   def available_copies_count
-    self.copies.available.count - self.reservations.count
+    c = self.copies.available.count - self.reservations.count
+    c <= 0 ? 0 : c
+  end
+
+  def no_available_copies?
+    available_copies_count == 0
   end
 
   def copies_count
@@ -20,6 +25,10 @@ class Book < ActiveRecord::Base
 
   def reserved_for?(user)
     self.reservations.where(:user_id => user).present?
+  end
+
+  def reserved?
+    self.reservations.present?
   end
 
   def available?

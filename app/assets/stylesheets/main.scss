@@ -2,6 +2,13 @@ body {
   padding: 60px
 }
 
+
+#filters {
+  hr {
+    margin-bottom: 0
+  }
+}
+
 #books .books.list {
   tr {
     td.reserve .reserved {
@@ -10,10 +17,11 @@ body {
     td.reserve .none {
       color: #C43C35;
     }
-    .label {
+    .btn.small {
       white-space: normal;
       display: block;
       margin: 0 5px 5px 0;
+      padding: 2px 4px;
       float: left;
       &:hover {
         color: #FFF;
@@ -73,8 +81,20 @@ body {
   padding-left: 0;
 }
 
-#new-order .submit {
-  padding-top: 19px;
+form#check-out {
+  hr {
+    margin: 10px 0 9px 0
+  }
+  .user-actions {
+    text-align: right;
+    .btn.small {
+      padding: 4px 6px;
+    }
+  }
+  .remove-user:hover {
+    text-decoration: none;
+    color: #FFF;
+  }
 }
 
 form.check-in .error {

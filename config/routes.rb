@@ -9,6 +9,11 @@ BibliotekaSkg::Application.routes.draw do
   end
 
   resources :reservations, :only => :create
+  resources :users, :only => :index do
+    member do
+      get :autocomplete
+    end
+  end
 
   resources :copies, :only => :show do
     member do

@@ -1,5 +1,6 @@
 class Copy < ActiveRecord::Base
   belongs_to :book
+  has_many :reservations, :through => :book
   has_many :orders
   validates :index, :presence => true
 

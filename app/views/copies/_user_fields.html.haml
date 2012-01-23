@@ -1,0 +1,9 @@
+.user-fields
+  .row.jquery-ui
+    = f.simple_fields_for :anonymous_user do |user|
+      .span4= user.input :name, :label => t('.name'), :input_html => { :class => :span4, :id => 'user-name' }
+      .span4= user.input :email, :label => t('.email'), :input_html => { :class => :span4 }
+  .row
+    = f.simple_fields_for :anonymous_user do |user|
+      .span4= user.input :phone, :label => t('.phone'), :input_html => { :class => :span4 }
+  %hr

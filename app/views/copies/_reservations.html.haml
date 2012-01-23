@@ -1,0 +1,5 @@
+- @reservations.each do |reservation|
+  .row.reservation
+    .span= radio_button_tag 'order[user_id]', reservation.user.id, @reservations.first.id == reservation.id, :class => 'order_user_id'
+    .span= reservation_user_label(reservation.user)
+  %hr

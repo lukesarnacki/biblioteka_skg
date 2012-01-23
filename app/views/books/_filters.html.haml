@@ -1,6 +1,14 @@
 #filters
-  = label_tag :title, "Tytuł:"
-  = text_field_tag :title, "", :class => :span6
+  = form_tag '/books', :method => :get do
+    .row
+      .span1= label_tag :query, "Tytuł:", :class => :span1
+      .span4= text_field_tag :query, params[:query], :class => :span4
+      .span1= label_tag :category_id, "Kategoria:", :class => :span1
+      .span= select_tag :category_id, options_for_select(Category.all.collect { |c| [c.name, c.id] }.insert(0, ''), params[:category_id])
+      .span2= submit_tag 'Szukaj', :class => 'btn info'
+
+  %hr
+
 
   =# label_tag :title, "Rok od:"
   =# text_field_tag :title, "", :class => :span2

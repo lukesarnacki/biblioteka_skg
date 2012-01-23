@@ -25,10 +25,10 @@ pl:
   books:
     login_and_reserve:
       submit: "Zaloguj się i zamów książkę"
-      notes: "Notatki do zamówienia"
+      notes: "Uwagi do tego zamówienia"
     register_and_reserve:
       submit: "Zarejestruj się i zamów książkę"
-      notes: "Notatki do zamówienia"
+      notes: "Uwagi do tego zamówienia"
     anonymous_reservation:
       dont_want_account_html: "Nie chcę zakładać konta &raquo;"
       dont_want_account_explanation_html: "Żeby wypożyczyć książkę nie posiadając konta potrzebne będzie trochę inwencji twórczej i starodawnych metod. Skontaktuj się z obsługą biblioteki pod adresem <strong><a href=\"mailto:biblioteka@skg.uw.edu.pl\">biblioteka[at]skg.uw.edu.pl</a></strong> podając tytuł i autora wybranej książki."
@@ -39,13 +39,15 @@ pl:
       have_account_html: "Mam już konto &raquo;"
       want_account_html: "Nie mam konta i chcę założyć &raquo;"
       reserve: "Zamów: %{title}"
+      notes: "Uwagi do tego zamówienia"
 
     list:
       title: "Tytuł"
       author: "Autor"
       category: "Kategoria"
-      available: "Dostępne"
+      to_be_borrowed: "Do wypożyczenia"
       borrowed: "Wypożyczone"
+      reserved: "Zamówionych"
       copies_count: "Dostępnych"
       edit: "Edytuj"
       destroy: "Usuń"
@@ -60,15 +62,22 @@ pl:
       check_out: "Wypożycz: %{title}"
       lend_book: "Wypożycz książkę"
     copy:
-      title: "Tytuł"
-      author: "Autor"
-      category: "Kategoria"
-      index: "Indeks"
-      publication: "Wydanie"
-      details: "Szczegóły"
-
-  orders:
+      title: "Tytuł:"
+      author: "Autor:"
+      category: "Kategoria:"
+      index: "Indeks:"
+      publication: "Wydanie:"
+      details: "Szczegóły:"
+    user_data:
+      name: "Imię i nazwisko:"
+      email: "Email:"
+      phone: "Telefon:"
+    user_fields:
+      name: "Imię i nazwisko:"
+      email: "Email:"
+      phone: "Telefon:"
     check_out:
+      another_user: "Wypożycz innej osobie"
       from: Od
       to: Do
     check_in:

@@ -9,7 +9,9 @@ class Order < ActiveRecord::Base
   before_destroy :auto_check_in
 
   validates_presence_of :to, :on => :update
-  validates :from, :presence => true
+  validates :from, :user_id, :presence => true
+
+  after_create :destroy_reservation
 
   def set_from
     self.from = Date.today
@@ -32,5 +34,9 @@ class Order < ActiveRecord::Base
 
   def auto_check_in
     copy.check_in if copy.last_order == self
+  end
+
+  def destroy_reservation
+    self.copy.reservations.where(:user_id => self.user).destroy_all
   end
 end

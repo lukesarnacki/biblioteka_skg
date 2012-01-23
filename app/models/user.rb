@@ -8,4 +8,6 @@ class User < AbstractUser
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name
 
   has_many :reservations
+
+  validates :email, :uniqueness => true, :presence => true
 end

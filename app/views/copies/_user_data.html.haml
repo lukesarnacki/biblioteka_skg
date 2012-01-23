@@ -1,0 +1,15 @@
+.user-data
+  .row
+    .span4
+      %dl
+        %dt= t('.name')
+        %dd= @user.name || t('none')
+        %dt= t('.email')
+        %dd= @user.email || t('none')
+    .span2
+      %dl
+        %dt= t('.phone')
+        %dd= @user.phone || t('none')
+    .span1.user-actions
+      = hidden_field_tag 'order[user_id]', @user.id
+      =link_to "x", '#', :class => 'remove-user btn danger small'

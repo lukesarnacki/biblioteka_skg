@@ -11,10 +11,18 @@ module ApplicationHelper
     "#{book.available_copies_count} / #{book.copies_count}"
   end
 
+  def reservations_count(book)
+    "#{book.reservations.count} / #{book.copies_count}"
+  end
+
+  def reserved_html_class(book)
+    book.reserved?.to_s
+  end
+
   private
 
   def copies(book, available = true)
-    html_class = available ? 'available label check-out' : 'unavailable label check-in'
+    html_class = available ? 'available btn success small check-out' : 'unavailable btn danger small check-in'
 
     scope = book.copies
     scope = available ? scope.available : scope.borrowed

@@ -5,8 +5,8 @@
   - if can? :manage, :all
     %td.available= available_copies(book)
     %td.unavailable= unavailable_copies(book)
-    %td.reserved
-  %td.copies-count= copies_count(book)
+    %td.reserved{ :class => reserved_html_class(book) }= reservations_count(book)
+  %td.available-count= copies_count(book)
   %td.reserve
     - if book.reserved_for?(current_user)
       %span.reserved= t('.reserved')
