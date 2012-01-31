@@ -5,10 +5,11 @@
   = f.input :category_id, :collection => @categories, :input_html => { :class => :span9 }
 
   %hr
-  = f.simple_fields_for :copies, @copies do |c|
-    %h3 Egzemplarz
-    = c.input :index
-    = c.input :publication
+  .copies
+    = f.simple_fields_for :copies, @copies do |c|
+      = render :partial => 'copy', :locals => { :c => c }
+
+  = link_to t('.add_new_copy'), '#', :class => 'add-new-copy btn primary'
 
   .actions
     = f.button :submit, :class => "btn success"

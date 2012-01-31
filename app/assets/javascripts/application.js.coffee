@@ -12,6 +12,7 @@
 #= require helpers
 #= require facebox
 #= require copies
+#= require books
 
 
 $ ->

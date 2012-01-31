@@ -4,6 +4,8 @@ BibliotekaSkg::Application.routes.draw do
   resource :home, :only => :index
   resources :books do
     member do
+      put :add_new_copy
+      post :add_new_copy
       match :reserve
     end
   end

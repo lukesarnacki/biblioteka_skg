@@ -1,0 +1,5 @@
+%h3 Egzemplarz
+= c.input :index
+= c.input :publication
+= link_to t('.remove_copy'), '#', :class => 'remove-copy btn danger', :'data-id' => c.object.id
+%hr

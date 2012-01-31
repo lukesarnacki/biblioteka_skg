@@ -6,6 +6,8 @@ class Book < ActiveRecord::Base
   validates :title, :category_id, :presence => true
   accepts_nested_attributes_for :copies
 
+  after_save :remove_copies_without_book
+
   def orders_count
     self.copies.available - self.orders.count
   end
@@ -33,5 +35,11 @@ class Book < ActiveRecord::Base
 
   def available?
     available_copies_count > 0
+  end
+
+  private
+
+  def remove_copies_without_book
+    Copies.where(:book_id => nil).destroy_all
   end
 end

@@ -6,8 +6,8 @@ class BooksController < ApplicationController
   respond_to :html
 
   def index
-    @books = @books.where("LOWER(title) LIKE ?", "%#{params[:query]}%") if params[:query]
-    @books = @books.where(:category_id => params[:category_id]) if params[:category_id]
+    @books = @books.where("LOWER(title) LIKE ?", "%#{params[:query]}%") unless params[:query].blank?
+    @books = @books.where(:category_id => params[:category_id]) unless params[:category_id].blank?
     @books = @books.order('title ASC').paginate :page => params[:page]
 
     respond_to do |format|
@@ -87,6 +87,13 @@ class BooksController < ApplicationController
     @user = user_signed_in? ? current_user : User.new
 
     respond_with @book, :layout => !request.xhr?
+  end
+
+  def add_new_copy
+    raise params[:form].inspect
+    @form = params[:form]
+    @copies = @book.copies
+    @copies << Copy.new
   end
 
   private

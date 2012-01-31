@@ -1,5 +1,10 @@
 %tr{ :id => "book-#{book.id}"}
-  %td.title= link_to book.title, edit_book_path(book)
+  %td.title
+    - if can? :manage, :all
+      = link_to book.title, edit_book_path(book)
+    - else
+      = book.title
+
   %td.author= book.author
   %td.category= book.category.name if book.category.present?
   - if can? :manage, :all
