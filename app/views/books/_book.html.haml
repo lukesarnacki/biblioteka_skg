@@ -1,4 +1,4 @@
-%tr{ :id => "book-#{book.id}"}
+%tr{ :id => "book-#{book.id}", :class => book_class(book) }
   %td.title
     - if can? :manage, :all
       = link_to book.title, edit_book_path(book)

@@ -9,7 +9,7 @@ class Order < ActiveRecord::Base
   before_destroy :auto_check_in
 
   validates_presence_of :to, :on => :update
-  validates :from, :user_id, :presence => true
+  validates :from, :presence => true
 
   after_create :destroy_reservation
 

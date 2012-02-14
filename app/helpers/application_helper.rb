@@ -12,7 +12,7 @@ module ApplicationHelper
   end
 
   def reservations_count(book)
-    "#{book.reservations.count} / #{book.copies_count}"
+    book.reservations.count
   end
 
   def reserved_html_class(book)

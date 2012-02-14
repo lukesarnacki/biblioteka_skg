@@ -8,6 +8,9 @@ class BooksController < ApplicationController
   def index
     @books = @books.where("LOWER(title) LIKE ?", "%#{params[:query]}%") unless params[:query].blank?
     @books = @books.where(:category_id => params[:category_id]) unless params[:category_id].blank?
+
+    @books = @books.joins('LEFT JOIN library_reservations ON book_id = library_books.id').order('book_id DESC') if signed_in? && current_user.admin?
+
     @books = @books.order('title ASC').paginate :page => params[:page]
 
     respond_to do |format|

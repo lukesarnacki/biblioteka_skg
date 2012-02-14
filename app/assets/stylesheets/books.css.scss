@@ -3,6 +3,12 @@ table.list.books tr {
     text-align: center;
   }
 
+  &.reserved {
+    td {
+      background: #FDF8E3;
+    }
+  }
+
   td.reserved {
     &.true {
       font-weight: bold;

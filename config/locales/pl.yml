@@ -40,6 +40,12 @@ pl:
       want_account_html: "Nie mam konta i chcę założyć &raquo;"
       reserve: "Zamów: %{title}"
       notes: "Uwagi do tego zamówienia"
+      submit: "Zamów książkę"
+
+      title: "Tytuł:"
+      author: "Autor:"
+      category: "Kategoria:"
+      details: "Szczegóły:"
 
     list:
       title: "Tytuł"
@@ -269,6 +275,7 @@ pl:
         create: 'Wypożycz książkę'
         submit: 'Wypożycz książkę'
         update: 'Zwróć książkę'
+        
 
   errors:
     format: "%{attribute} %{message}"
