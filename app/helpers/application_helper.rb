@@ -33,4 +33,8 @@ module ApplicationHelper
       link_to c.index, path, :class => html_class, :rel => :facebox
     end.join.html_safe
   end
+
+  def book_class(book)
+    'reserved' if book.reserved?
+  end
 end

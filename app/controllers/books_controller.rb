@@ -9,7 +9,7 @@ class BooksController < ApplicationController
     @books = @books.where("LOWER(title) LIKE ?", "%#{params[:query]}%") unless params[:query].blank?
     @books = @books.where(:category_id => params[:category_id]) unless params[:category_id].blank?
 
-    @books = @books.joins('LEFT JOIN library_reservations ON book_id = library_books.id').order('book_id DESC') if signed_in? && current_user.admin?
+    @books = @books.select('distinct library_books.*').joins('INNER JOIN library_copies on library_copies.book_id = library_books.id LEFT JOIN library_reservations ON library_reservations.book_id = library_books.id').order('library_reservations.book_id DESC, library_copies.state ASC') if signed_in? && current_user.admin?
 
     @books = @books.order('title ASC').paginate :page => params[:page]
 
