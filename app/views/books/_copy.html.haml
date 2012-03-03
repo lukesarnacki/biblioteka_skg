@@ -1,5 +1,8 @@
-%h3 Egzemplarz
-= c.input :index
-= c.input :publication
-= link_to t('.remove_copy'), '#', :class => 'remove-copy btn danger', :'data-id' => c.object.id
-%hr
+%tr.copy{ :id => "copy-#{copy.id}" }
+  %td= copy.index
+  %td= copy.publication
+  %td= copy.exists? ? 'tak' : 'nie'
+  %td= link_to 'Edytuj', edit_book_copy_path(copy.book, copy), :rel => :facebox
+  %td= link_to 'x', copy_path(copy),
+            :class => 'btn danger small destroy-copy',
+            :confirm => 'Czy jesteś pewien?', :method => :delete

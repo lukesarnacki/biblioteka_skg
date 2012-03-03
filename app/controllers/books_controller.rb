@@ -92,13 +92,6 @@ class BooksController < ApplicationController
     respond_with @book, :layout => !request.xhr?
   end
 
-  def add_new_copy
-    raise params[:form].inspect
-    @form = params[:form]
-    @copies = @book.copies
-    @copies << Copy.new
-  end
-
   private
 
   def get_objects

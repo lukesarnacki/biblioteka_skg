@@ -1,0 +1,10 @@
+<% unless @copy.valid? %>
+  $('.alert-message').remove();
+  $(".alert-message").alert()
+  $('#facebox .content').prepend("<%= j render :partial => 'shared/flash', :locals => { :flash => flash }  %>");
+  $('form.copy').replaceWith("<%= j render :partial => 'form' %>");
+<% else %>
+  $('.copies tbody').html('<%= j render :partial => 'books/copy', :collection => @book.copies %>');
+  $('tr#copy-<%= @copy.id %>').effect("highlight", {}, 5000)
+  $(document).trigger('close.facebox');
+<% end %>

@@ -40,6 +40,6 @@ class Book < ActiveRecord::Base
   private
 
   def remove_copies_without_book
-    Copies.where(:book_id => nil).destroy_all
+    Copy.where(:book_id => nil).destroy_all
   end
 end

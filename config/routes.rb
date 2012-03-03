@@ -4,10 +4,9 @@ BibliotekaSkg::Application.routes.draw do
   resource :home, :only => :index
   resources :books do
     member do
-      put :add_new_copy
-      post :add_new_copy
       match :reserve
     end
+    resources :copies, :only => [:new, :edit, :create, :update]
   end
 
   resources :reservations, :only => :create
@@ -17,7 +16,7 @@ BibliotekaSkg::Application.routes.draw do
     end
   end
 
-  resources :copies, :only => :show do
+  resources :copies, :only => [:show, :destroy] do
     member do
       put :check_in
     end

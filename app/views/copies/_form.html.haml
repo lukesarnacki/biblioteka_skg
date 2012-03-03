@@ -1,0 +1,8 @@
+= simple_form_for([@book, @copy], :remote => true) do |f|
+  = f.input :index, :input_html => { :class => :span4 }
+  = f.input :publication, :input_html => { :class => :span4 }
+  = f.input :exists
+  = hidden_field_tag :'copy[book_id]', @book.id
+
+  .actions
+    = f.button :submit, :class => "btn success"

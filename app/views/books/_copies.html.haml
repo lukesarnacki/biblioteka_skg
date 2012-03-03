@@ -1,0 +1,15 @@
+.copies
+  %h2 Egzemplarze
+  = link_to t('.add_new_copy'), new_book_copy_path(@book),
+            :rel => :facebox, :class => 'add-new-copy btn primary'
+
+  %table.copies
+    %thead
+      %tr
+        %th Indeks
+        %th Wydanie
+        %th Istnieje?
+        %th Edytuj
+        %th Usun
+    %tbody
+      = render :partial => 'copy', :collection => @copies

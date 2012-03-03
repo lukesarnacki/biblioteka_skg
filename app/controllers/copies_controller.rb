@@ -1,6 +1,9 @@
 class CopiesController < ApplicationController
 
   respond_to :html, :js
+  load_and_authorize_resource
+  before_filter :load_book, :only => [:new, :edit, :create, :update]
+
 
   def show
     @copy = Copy.find(params[:id])
@@ -35,7 +38,46 @@ class CopiesController < ApplicationController
     respond_with @order, :location => request.xhr? ? check_in_copy_path(@copy) : books_path, :layout => !request.xhr?
   end
 
+  def new
+    respond_with @copy, :layout => !request.xhr?
+  end
+
+  def create
+    unless @copy.save
+      flash_message(:error, t("flash.actions.create.error"))
+    end
+
+    respond_with @copy, :location => edit_book_path(@book), :layout => !request.xhr?
+  end
+
+  def edit
+    respond_with @copy, :layout => !request.xhr?
+  end
+
+  def update
+    unless @copy.update_attributes(params[:copy])
+      flash_message(:error, t("flash.actions.create.error"))
+    end
+
+    respond_with @copy, :location => edit_book_path(@book), :layout => !request.xhr?
+  end
+
+  def destroy
+    @copy = Copy.find(params[:id])
+    @book = @copy.book
+    @copy.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(edit_book_path(@book)) }
+      format.xml  { head :ok }
+    end
+  end
+
   private
+
+  def load_book
+    @book = Book.find(params[:book_id])
+  end
 
   def load_objects
     @book = @copy.book

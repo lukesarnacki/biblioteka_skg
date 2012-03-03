@@ -46,6 +46,9 @@ pl:
       author: "Autor:"
       category: "Kategoria:"
       details: "Szczegóły:"
+    copies:
+      add_new_copy: "Dodaj egzemplarz"
+
 
     list:
       title: "Tytuł"
@@ -88,6 +91,10 @@ pl:
       to: Do
     check_in:
       lended: "Wypożyczono:"
+    new:
+      title: "Nowy egzemplarz"
+    edit:
+      title: "Edytuj egzemplarz"
 
   devise:
     sessions:
@@ -275,7 +282,7 @@ pl:
         create: 'Wypożycz książkę'
         submit: 'Wypożycz książkę'
         update: 'Zwróć książkę'
-        
+
 
   errors:
     format: "%{attribute} %{message}"
@@ -327,6 +334,7 @@ pl:
         index: "Indeks"
         publication: "Wydanie"
         available: "Dostępna"
+        exists: "Istnieje?"
 
       order:
         from: "Data wypożyczenia"

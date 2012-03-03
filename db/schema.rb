@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111224225702) do
+ActiveRecord::Schema.define(:version => 20120303150036) do
 
   create_table "ankieta", :force => true do |t|
     t.text    "pyt2",                 :null => false
@@ -568,12 +568,13 @@ ActiveRecord::Schema.define(:version => 20111224225702) do
   end
 
   create_table "library_copies", :force => true do |t|
-    t.integer  "book_id",                    :null => false
-    t.string   "index",                      :null => false
+    t.integer  "book_id",                       :null => false
+    t.string   "index",                         :null => false
     t.string   "publication"
-    t.integer  "state",       :default => 0, :null => false
+    t.integer  "state",       :default => 0,    :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "exists",      :default => true, :null => false
   end
 
   create_table "library_orders", :force => true do |t|
